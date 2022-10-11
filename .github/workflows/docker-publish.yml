@@ -67,7 +67,10 @@ jobs:
 
      - name: Set output
        id: vars
-       run: echo ::set-output name=ref::${GITHUB_REF##*/}
+       run: |
+         echo ::set-output name=ref::${GITHUB_REF##*/}
+         echo ${{ github.sha }}
+         echo ${{ steps.vars.outputs.ref }}
 
      - name: Tag docker image
        run: |
