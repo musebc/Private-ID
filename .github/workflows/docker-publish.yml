@@ -20,16 +20,13 @@ jobs:
 
     steps:
       - name: Lowercase REGISTRY_IMAGE_NAME
-        id: string
+        id: lower_case_registry_image_name
         uses: ASzc/change-string-case-action@v1
         with:
           string: ${{ env.REGISTRY_IMAGE_NAME }}
 
       - name: Load registry image name into env
-        run: echo "REGISTRY_IMAGE_NAME_LOWERCASE=${{ steps.string.outputs.lowercase }}" >> ${GITHUB_ENV}
-
-      - name: Check REGISTRY_IMAGE_NAME_LOWERCASE
-        run: echo "env.$REGISTRY_IMAGE_NAME_LOWERCASE"
+        run: echo "REGISTRY_IMAGE_NAME_LOWERCASE=${{ steps.lower_case_registry_image_name.outputs.lowercase }}" >> ${GITHUB_ENV}
 
       - uses: actions/checkout@v2
 
