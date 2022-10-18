@@ -56,6 +56,7 @@ jobs:
             os_release=20.04
             fbpcf_image=ghcr.io/facebookresearch/fbpcf/ubuntu:${{ inputs.fbpcf_version }}
           push: false
+          load: true
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
 
