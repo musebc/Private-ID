@@ -29,6 +29,9 @@ jobs:
         run: echo "REGISTRY_IMAGE_NAME_LOWERCASE=${{ steps.lower_case_registry_image_name.outputs.lowercase }}" >> ${GITHUB_ENV}
 
       - uses: actions/checkout@v3
+        name: Checkout Private ID Repo
+        with:
+          fetch-depth: 0
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
